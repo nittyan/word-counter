@@ -1,0 +1,8 @@
+venv
+build
+.idea
+dist
+__pycache__
+*.spec
+*.csv
+*.txt
