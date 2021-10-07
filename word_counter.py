@@ -8,7 +8,8 @@ from janome.tokenfilter import ExtractAttributeFilter, POSKeepFilter
 
 
 token_filters = [
-    POSKeepFilter(['名詞']), ExtractAttributeFilter('surface')
+    POSKeepFilter(['名詞', '動詞']),
+    ExtractAttributeFilter('base_form')
 ]
 analyzer = Analyzer(token_filters=token_filters)
 
