@@ -3,6 +3,7 @@ import codecs
 from collections import Counter
 from typing import List
 
+from tqdm import tqdm
 from janome.analyzer import Analyzer
 from janome.tokenfilter import ExtractAttributeFilter, POSKeepFilter
 
@@ -35,7 +36,7 @@ def write_file(tokens: List[str]):
 
 def analyze(texts: List[str]) -> List[str]:
     tokens = []
-    for text in texts:
+    for text in tqdm(texts, desc='解析中'):
         for token in analyzer.analyze(text):
             tokens.append(token)
     return tokens
