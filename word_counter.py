@@ -1,4 +1,5 @@
 import codecs
+import sys
 
 from collections import Counter
 from typing import List
@@ -16,7 +17,8 @@ analyzer = Analyzer(token_filters=token_filters)
 
 
 def main():
-    file_path: str = input('対象ファイルをドラッグアンドドロップしてください\n')
+    file_path = sys.argv[1]
+    print(f'{sys.argv[1]} を解析')
     tokens: List[str] = analyze(read_file(file_path))
     sorted_tokens: List[str] = count(tokens)
     write_file(sorted_tokens)
